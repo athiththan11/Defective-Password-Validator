@@ -3,7 +3,7 @@ package com.athiththan.sample.constants;
 import org.wso2.carbon.utils.CarbonUtils;
 
 /**
- * this class contains all defective-password related constants and paths The
+ * this class contains all defective-password related constants and paths. The
  * filename is "password.txt" and which is placed inside the
  * IS_HOME/repository/deployment/server/defective
  */
@@ -14,6 +14,9 @@ public class DefectivePasswordValidatorConstants {
             + "/repository/deployment/server/defective";
     public static final String PASSWORD_FILE_PATH = PASSWORD_FILE_DIR + "/" + PASSWORD_FILE_NAME;
 
+    /**
+     * error messages (enum) for defective password validation errors
+     */
     public enum ErrorMessages {
 
         // error message

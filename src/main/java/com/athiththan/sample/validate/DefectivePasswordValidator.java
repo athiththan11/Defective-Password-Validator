@@ -1,5 +1,8 @@
 package com.athiththan.sample.validate;
 
+/**
+ * interface for defective password validator implementations.
+ */
 public interface DefectivePasswordValidator {
 
     /**

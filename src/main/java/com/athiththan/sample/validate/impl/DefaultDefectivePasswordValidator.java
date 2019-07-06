@@ -15,11 +15,11 @@ import org.slf4j.LoggerFactory;
 
 /**
  * a singleton class implementation for defective password validations and to
- * initialize defective password lists
+ * initialize defective password lists.
  */
 public class DefaultDefectivePasswordValidator implements DefectivePasswordValidator {
 
-    private static List<String> crackedPasswords = new ArrayList<>();
+    private List<String> crackedPasswords = new ArrayList<>();
     private static DefaultDefectivePasswordValidator dPasswordValidator = new DefaultDefectivePasswordValidator();
 
     private static final Logger log = LoggerFactory.getLogger(DefaultDefectivePasswordValidator.class);
@@ -36,7 +36,6 @@ public class DefaultDefectivePasswordValidator implements DefectivePasswordValid
      */
     @Override
     public void initValues() {
-        crackedPasswords = new ArrayList<>();
         try {
             crackedPasswords = Files.readAllLines(Paths.get(DefectivePasswordValidatorConstants.PASSWORD_FILE_PATH),
                     StandardCharsets.UTF_8);

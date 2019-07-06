@@ -7,7 +7,7 @@ import org.wso2.carbon.identity.base.IdentityException;
 import org.wso2.carbon.identity.event.IdentityEventException;
 
 /**
- * utility class for exceptions
+ * utility class for exceptions.
  */
 public class Utils {
 

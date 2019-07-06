@@ -23,7 +23,7 @@ import org.wso2.carbon.identity.event.handler.AbstractEventHandler;
 
 /**
  * osgi service component implementation to register the custom event handler
- * with the bundle context
+ * with the bundle context.
  */
 @Component(name = "com.athiththan.sample.internal.component", service = DefectivePasswordValidatorServiceComponent.class, immediate = true)
 public class DefectivePasswordValidatorServiceComponent {
