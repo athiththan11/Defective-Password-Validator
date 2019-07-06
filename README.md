@@ -38,7 +38,7 @@ mvn clean package
 
 ## Deploy
 
-After a successful build, copy the `defective-password-validato-1.0.0.jar` artifact from the `target` folder and paste it inside `<IS HOME>/repository/components/dropins` folder.
+After a successful build, copy the `defective-password-validator-1.0.0.jar` artifact from the `target` folder and paste it inside `<IS HOME>/repository/components/dropins` folder.
 
 ## Run
 
