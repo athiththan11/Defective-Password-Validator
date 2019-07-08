@@ -39,6 +39,8 @@ Create a directory named `crackedPassword` inside `<IS_HOME>/repository/deployme
 
 Enable sync mechanism on the `<IS_HOME>/repository/deployment/server` directory to sync the artifacts and the server folder with other working nodes. You can use either rsync or Shared File System to sync your artifacts.
 
+---
+
 ### Changes in configuration
 
 > *This section is refered only if there are any changes in the file name (passwords.txt) or the directory name (crackePassword) than default*
@@ -47,6 +49,8 @@ Open the sample implementation and navigate to `org.wso2.sample.defective.passwo
 
 * PASSWORD_FILE_NAME: this constant is used to define the file-name (default: passwords.txt)
 * PASSWORD_DIR_NAME: this constant is used to define the directory-name (default: crackedPassword)
+
+---
 
 ### WSO2 Identity Server
 
