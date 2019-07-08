@@ -1,4 +1,4 @@
-package com.athiththan.sample.validate;
+package org.wso2.sample.defective.password.validator.validate;
 
 /**
  * interface for defective password validator implementations.
@@ -6,12 +6,12 @@ package com.athiththan.sample.validate;
 public interface DefectivePasswordValidator {
 
     /**
-     * init() method to initialize defective passwords
+     * init() method to initialize defective passwords.
      */
     void initValues();
 
     /**
-     * password validation method against defective passwords
+     * password validation method against defective passwords.
      * 
      * @param credential password credential
      * @return

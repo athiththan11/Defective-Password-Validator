@@ -1,13 +1,12 @@
-package com.athiththan.sample.util;
-
-import com.athiththan.sample.constants.DefectivePasswordValidatorConstants;
+package org.wso2.sample.defective.password.validator.util;
 
 import org.apache.commons.lang.StringUtils;
 import org.wso2.carbon.identity.base.IdentityException;
 import org.wso2.carbon.identity.event.IdentityEventException;
+import org.wso2.sample.defective.password.validator.constants.DefectivePasswordValidatorConstants;
 
 /**
- * utility class for exceptions.
+ * utility class to handle event exceptions.
  */
 public class Utils {
 

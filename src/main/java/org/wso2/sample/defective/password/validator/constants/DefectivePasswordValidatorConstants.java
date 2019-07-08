@@ -1,27 +1,25 @@
-package com.athiththan.sample.constants;
+package org.wso2.sample.defective.password.validator.constants;
 
 import org.wso2.carbon.utils.CarbonUtils;
 
 /**
- * this class contains all defective-password related constants and paths. The
- * filename is "password.txt" and which is placed inside the
- * IS_HOME/repository/deployment/server/defective
+ * constants of defective password validator component.
  */
 public class DefectivePasswordValidatorConstants {
 
     public static final String PASSWORD_FILE_NAME = "passwords.txt";
+    public static final String PASSWORD_DIR_NAME = "crackedPassword";
+
     public static final String PASSWORD_FILE_DIR = CarbonUtils.getCarbonHome()
-            + "/repository/deployment/server/defective";
+            + "/repository/deployment/server/" + PASSWORD_DIR_NAME;
     public static final String PASSWORD_FILE_PATH = PASSWORD_FILE_DIR + "/" + PASSWORD_FILE_NAME;
 
     /**
-     * error messages (enum) for defective password validation errors
+     * error messages (enum) for password validation errors.
      */
     public enum ErrorMessages {
 
-        // error message
-        ERROR_CODE_CRACKED_PASSWORD_VALIDATION("40001",
-                "Password validation failed. Your password contains defective keywords");
+        ERROR_CODE_CRACKED_PASSWORD_VALIDATION("40002", "Your password contains defective keywords");
 
         private final String code;
         private final String message;

@@ -12,7 +12,7 @@ Create a text file named `passwords.txt` and add the following lines. The follow
 * password
 * helloWorld
 
-Create a directory named `defective` inside `<IS_HOME>/repository/deployment/server/` path and place the above created `passwords.txt`.
+Create a directory named `crackedPassword` inside `<IS_HOME>/repository/deployment/server/` path and place the above created `passwords.txt`.
 
 ### WSO2 Identity Server
 
@@ -26,6 +26,8 @@ Open the `<IS_HOME>/repository/conf/identity/identity-event.properties` file and
 module.name.13=defectivePasswordValidator
 defectivePasswordValidator.subscription.1=PRE_UPDATE_CREDENTIAL
 defectivePasswordValidator.subscription.2=PRE_UPDATE_CREDENTIAL_BY_ADMIN
+defectivePasswordValidator.subscription.3=PRE_ADD_USER
+
 ```
 
 ## Build
@@ -38,7 +40,7 @@ mvn clean package
 
 ## Deploy
 
-After a successful build, copy the `defective-password-validator-1.0.0.jar` artifact from the `target` folder and paste it inside `<IS HOME>/repository/components/dropins` folder.
+After a successful build, copy the `org.wso2.sample.defective.password.validator-1.0.0.jar` artifact from the `target` folder and paste it inside `<IS HOME>/repository/components/dropins` folder.
 
 ## Run
 

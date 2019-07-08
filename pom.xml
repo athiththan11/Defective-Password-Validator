@@ -4,12 +4,12 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.athiththan.sample</groupId>
-	<artifactId>defective-password-validator</artifactId>
+	<groupId>org.wso2.sample.defective.password</groupId>
+	<artifactId>org.wso2.sample.defective.password.validator</artifactId>
 	<version>1.0.0</version>
-
-	<!-- change the packaging to bundle (from jar) to support OSGi -->
 	<packaging>bundle</packaging>
+
+	<name>defective-password-validator</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -20,9 +20,10 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.wso2.carbon.identity.framework</groupId>
-			<artifactId>org.wso2.carbon.identity.mgt</artifactId>
+			<artifactId>org.wso2.carbon.identity.event</artifactId>
 			<version>5.13.4</version>
 		</dependency>
+
 	</dependencies>
 
 	<repositories>
@@ -57,11 +58,11 @@
 						<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
 						<Bundle-Name>${project.artifactId}</Bundle-Name>
 						<Private-Package>
-							com.athiththan.sample.internal
+							org.wso2.sample.defective.password.validator.internal
 						</Private-Package>
 						<Export-Package>
-                            !com.athiththan.sample.internal,
-                            com.athiththan.sample.*,
+                            !org.wso2.sample.defective.password.validator.internal,
+                            org.wso2.sample.defective.password.validator.*,
 						</Export-Package>
 						<Import-Package>
                             org.osgi.framework; version="[1.7.0, 2.0.0)",

@@ -1,44 +1,44 @@
-package com.athiththan.sample.handler;
+package org.wso2.sample.defective.password.validator.handler;
 
-import com.athiththan.sample.constants.DefectivePasswordValidatorConstants;
-import com.athiththan.sample.util.Utils;
-import com.athiththan.sample.validate.impl.DefaultDefectivePasswordValidator;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.wso2.carbon.identity.core.bean.context.MessageContext;
 import org.wso2.carbon.identity.event.IdentityEventConstants;
 import org.wso2.carbon.identity.event.IdentityEventException;
 import org.wso2.carbon.identity.event.event.Event;
 import org.wso2.carbon.identity.event.handler.AbstractEventHandler;
+import org.wso2.sample.defective.password.validator.constants.DefectivePasswordValidatorConstants;
+import org.wso2.sample.defective.password.validator.util.Utils;
+import org.wso2.sample.defective.password.validator.validate.DefectivePasswordValidator;
+import org.wso2.sample.defective.password.validator.validate.impl.DefaultDefectivePasswordValidator;
 
 /**
- * event handler implementation to take action whenever an event is published
+ * custom event handler implementation for defective password validation.
  */
 public class DefectivePasswordValidatorEventHandler extends AbstractEventHandler {
 
-    private static final Logger log = LoggerFactory.getLogger(DefectivePasswordValidatorEventHandler.class);
+    private static final Log log = LogFactory.getLog(DefectivePasswordValidator.class);
 
-    /**
-     * events are handled inside this method. the current implementation is
-     * subscribed to PRE_UPDATE_CREDENTIALS and PRE_UPDATE_CREDENTIALS_BY_ADMIN
-     * events to validate the entered password against a list of defective passwords
-     */
     @Override
     public void handleEvent(Event event) throws IdentityEventException {
 
         if (log.isDebugEnabled()) {
-            log.debug("handleEvent() invoked");
+            log.debug("handle event invoked");
         }
 
         if (IdentityEventConstants.Event.PRE_UPDATE_CREDENTIAL.equals(event.getEventName())
-                || IdentityEventConstants.Event.PRE_UPDATE_CREDENTIAL_BY_ADMIN.equals(event.getEventName())) {
+                || IdentityEventConstants.Event.PRE_UPDATE_CREDENTIAL_BY_ADMIN.equals(event.getEventName())
+                || IdentityEventConstants.Event.PRE_ADD_USER.equals(event.getEventName())) {
+
+            if (log.isDebugEnabled()) {
+                log.debug("entered event on updating password credentials");
+            }
 
             Object credential = event.getEventProperties().get(IdentityEventConstants.EventProperty.CREDENTIAL);
             if (!DefaultDefectivePasswordValidator.getInstance().validate(credential)) {
 
                 if (log.isDebugEnabled()) {
-                    log.debug("given password is defective");
+                    log.debug("entered password is defective");
                 }
 
                 throw Utils.handleEventException(
@@ -47,9 +47,6 @@ public class DefectivePasswordValidatorEventHandler extends AbstractEventHandler
         }
     }
 
-    /**
-     * configure a name for the custom event handler implementation
-     */
     @Override
     public String getName() {
         return "defectivePasswordValidator";
